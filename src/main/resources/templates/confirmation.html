@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Karma Shop</title>
+
+	<!--
+		CSS
+		============================================= -->
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/nouislider.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+
+	<!-- End Banner Area -->
+
+	<!--================Order Details Area =================-->
+	<section class="order_details section_gap">
+		<div class="container">
+			<h3 class="title_confirmation">Merci. Votre commande a été reçue.</h3>
+
+			<div class="order_details_table">
+				<h2>Détails de la commande</h2>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Produit</th>
+								<th scope="col">Prix</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="produit: ${produits}">
+								<td>
+									<p th:text="${produit.nom}"></p>
+								</td>
+
+								<td>
+									<p th:text="${produit.prix}"></p>
+								</td>
+							<tr>
+
+
+								<td>
+									<h4>Prix total</h4>
+								</td>
+								<td>
+									<h5></h5>
+								</td>
+								<td>
+									<p th:text="${nombre}"></p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="checkout_btn_inner d-flex align-items-center">
+		<a class="gray_btn" th:href="@{/vide}">Retour</a>
+
+	</div>
+	<!--================End Order Details Area =================-->
+
+	<!-- start footer Area -->
+	<!-- End footer Area -->
+
+
+
+
+
+</body>
+
+</html>

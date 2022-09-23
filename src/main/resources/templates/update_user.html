@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Employee</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous" >
+</head>
+<body>
+
+<div class="container">
+
+  <h1 class="text-center">Modification Compte</h1>
+
+  <form action="#" th:action="@{/saveUser}" th:object="${connectedUser}" method="POST">
+    <input type="hidden" th:field="*{id}">
+    <h3>Nom : </h3><input type="text" th:field="*{nom}" class="form-control mb-4 col-4">
+    <h3>Prénom : </h3><input type="text" th:field="*{prenom}" class="form-control mb-4 col-4">
+    <h3>Numéro : </h3><input type="text" th:field="*{numero}" class="form-control mb-4 col-4">
+    <h3>Adresse : </h3><input type="text" th:field="*{adresse}" class="form-control mb-4 col-4">
+    <h3>Code postal : </h3><input type="text" th:field="*{zip}" class="form-control mb-4 col-4">
+    <h3>Email :</h3><input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+    <input type="hidden" th:field="*{password}" class="form-control mb-4 col-4">
+    <h3>Pays : </h3><input type="text" th:field="*{pays}" class="form-control mb-4 col-4">
+    <h3>Ville :</h3><input type="text" th:field="*{ville}" class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2">Update Employee</button>
+  </form>
+</div>
+</body>
+</html>
