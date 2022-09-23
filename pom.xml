@@ -16,6 +16,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<cargo-maven3-plugin.version>1.10.2</cargo-maven3-plugin.version>
+		<cargo.maven.containerId>tomcat${tomcat.major-version}x</cargo.maven.containerId>
+		<cargo.maven.containerUrl>https://archive.apache.org/dist/tomcat/tomcat-${tomcat.major-version}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.zip</cargo.maven.containerUrl>
+		<tomcat.major-version />
+		<tomcat.version />
 	</properties>
 	<dependencies>
 
@@ -63,33 +67,7 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven3-plugin</artifactId>
-				<version>${cargo-maven3-plugin.version}</version>
-				<configuration>
-					<container>
-						<containerId>${cargo.maven.containerId}</containerId>
-						<zipUrlInstaller>
-							<url>${cargo.maven.containerUrl}</url>
-						</zipUrlInstaller>
-					</container>
-					<daemon>
-						<properties>
-							<cargo.daemon.url>http://localhost:18000</cargo.daemon.url>
-							<cargo.daemon.handleid>${project.artifactId}</cargo.daemon.handleid>
-						</properties>
-					</daemon>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+
 
 	<profiles>
 		<!-- Profiles for Application Server -->
@@ -199,4 +177,35 @@
 			</properties>
 		</profile>
 	</profiles>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven3-plugin</artifactId>
+				<version>${cargo-maven3-plugin.version}</version>
+				<configuration>
+					<container>
+						<containerId>${cargo.maven.containerId}</containerId>
+						<zipUrlInstaller>
+							<url>${cargo.maven.containerUrl}</url>
+						</zipUrlInstaller>
+					</container>
+					<daemon>
+						<properties>
+							<cargo.daemon.url>http://localhost:18000</cargo.daemon.url>
+							<cargo.daemon.handleid>${project.artifactId}</cargo.daemon.handleid>
+						</properties>
+					</daemon>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
